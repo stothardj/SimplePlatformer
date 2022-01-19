@@ -10,9 +10,8 @@ func _ready():
 	sprite.play()
 
 func _on_Coin_body_entered(body):
-	if body.is_in_group("player"):
-		collected = true
-		sprite.modulate.a = 0.5
+	collected = true
+	sprite.modulate.a = 0.5
 
 func _process(delta):
 	if collected:

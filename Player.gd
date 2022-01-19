@@ -23,7 +23,6 @@ var holding_jump = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_to_group("player")
 	sprite.play(animation)
 
 func _physics_process(delta):
@@ -44,6 +43,9 @@ func _physics_process(delta):
 		vel.y += gravity
 		coyote_time = max(coyote_time - delta, 0)
 
+	if Input.is_action_just_pressed("climb"):
+		print("climb")
+		
 	var jumped = false
 	var jump_pressed = Input.is_action_pressed("jump")
 	if not jump_pressed or jump_duration >= max_jump_duration:
